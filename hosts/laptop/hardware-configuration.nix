@@ -5,8 +5,7 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix") 
-(fetchTarball "https://github.com")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
@@ -28,14 +27,6 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/5475e2b6-1fab-41cc-b7e6-d8a7db3e8a55"; }
     ];
-  services.openssh = {
-     enable = true;
-     settings = { 
-      PasswordAuthentication = true;   
-     }; 
-  };
-  # Added to enable the auto-patcher for the VS Code SSH Extension
-  services.nixos-vscode-server.enable = true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

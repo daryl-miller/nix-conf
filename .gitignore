@@ -1,0 +1,12 @@
+# Nix build outputs
+result
+result-*
+
+# direnv
+.direnv/
+
+# Editor/OS cruft
+.DS_Store
+*.swp
+.vscode/
+.idea/
