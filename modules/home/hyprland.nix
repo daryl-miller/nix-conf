@@ -33,8 +33,9 @@
 
       monitor = [
         # Acer XB271HU is enumerated as DP-4 (not HDMI-A-1 despite the HDMI cable — this
-        # iGPU/dock reports it as a DisplayPort connector), portrait rotated 90° clockwise
-        "DP-4,preferred,auto,1,transform,1"
+        # iGPU/dock reports it as a DisplayPort connector), portrait rotated 270°
+        # (transform 3) — transform 1 had it rotated the wrong way round.
+        "DP-4,preferred,auto,1,transform,3"
         # Samsung Odyssey G85SB. HDR is still marked experimental upstream (Hyprland wiki:
         # Configuring/Core/Monitors/Colors) — some users report color/grey-level distortion
         # with cm=hdr. bitdepth=10 is required alongside cm=hdr for HDR to take effect.
@@ -43,6 +44,14 @@
         # compensate; 3 was confirmed to look right by eye.
         "DP-2,preferred,auto,1,bitdepth,10,cm,hdr,sdrbrightness,3"
         ",preferred,auto,auto"
+      ];
+
+      # Default workspace per monitor: laptop panel -> 10, portrait Acer (DP-4) -> 9,
+      # Odyssey G85SB (DP-2) -> 1.
+      workspace = [
+        "10, monitor:eDP-1, default:true"
+        "9, monitor:DP-4, default:true"
+        "1, monitor:DP-2, default:true"
       ];
 
       "$mainMod" = "SUPER";
