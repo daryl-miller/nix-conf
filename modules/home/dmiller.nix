@@ -15,5 +15,6 @@
     ./waybar.nix
     ./hypr-shell.nix
     ./hypr-extras.nix
+    ./wallpapers.nix
   ];
 }

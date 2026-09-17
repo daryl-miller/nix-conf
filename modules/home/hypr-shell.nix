@@ -1,9 +1,14 @@
 { pkgs, hyprTheme, ... }:
 
 let
-  wallpaper = pkgs.runCommand "hyprland-wallpaper.png" { nativeBuildInputs = [ pkgs.imagemagick ]; } ''
-    magick -size 1920x1080 xc:"#${hyprTheme.colors.base}" "$out"
-  '';
+  # Same image (same url/hash) as the first entry in modules/home/wallpapers.nix —
+  # used here only as hyprlock's static blurred background; desktop wallpaper
+  # rotation itself lives in wallpapers.nix.
+  lockBackground = pkgs.fetchurl {
+    name = "pillars-of-creation.jpg";
+    url = "https://images-assets.nasa.gov/image/PIA25433/PIA25433~large.jpg";
+    sha256 = "08r4ignh4gd1b2gxp4c45sjwwaqk7hrq3v9wri03fqm2c1z5hc4c";
+  };
 in
 {
   # --- Terminal (spec FR-002 "open terminal") ---
@@ -68,13 +73,6 @@ in
     };
   };
 
-  # --- Wallpaper (spec FR-006) ---
-  services.awww.enable = true;
-
-  wayland.windowManager.hyprland.settings.exec-once = [
-    "awww img ${wallpaper} --transition-type fade --transition-fps 60"
-  ];
-
   # --- Notifications (spec FR-008) ---
   services.mako = {
     enable = true;
@@ -103,7 +101,7 @@ in
 
       background = [
         {
-          path = "${wallpaper}";
+          path = "${lockBackground}";
           blur_passes = 2;
           blur_size = 6;
         }
