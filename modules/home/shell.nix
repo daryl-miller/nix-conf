@@ -10,6 +10,7 @@
       ls = "ls --color=auto";
       grep = "grep --color=auto";
       diff = "diff --color=auto";
+      nrs = "sudo nixos-rebuild switch --flake /home/dmiller/repos/nix-config#laptop";
     };
   };
 
