@@ -21,6 +21,7 @@
     nwg-displays
     usbutils
     btop
+    traceroute
   ];
 
   virtualisation.docker.enable = true;

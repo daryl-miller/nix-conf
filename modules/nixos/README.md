@@ -16,7 +16,7 @@ can import the ones it needs.
 | `printing.nix` | `services.printing.enable` |
 | `nix-settings.nix` | `nix.settings.*`, `nixpkgs.config.allowUnfree` |
 | `remote-dev.nix` | `services.openssh.enable`, `services.openssh.settings.PasswordAuthentication`, `programs.nix-ld.enable` |
-| `dev-tools.nix` | `environment.systemPackages` (`git`, `claude-code`, `vscode`, `dotnet-sdk`, `dotnet-aspnetcore`, `dotnet-ef`, `csharpier`, `go`, `awscli2`, `aws-sso-cli`, `terraform`, `nodejs`, `python3`, `kubectl`, `k3d`, `wlr-randr`, `nwg-displays`, `usbutils`), `virtualisation.docker.enable` |
+| `dev-tools.nix` | `environment.systemPackages` (`git`, `claude-code`, `vscode`, `dotnet-sdk`, `dotnet-aspnetcore`, `dotnet-ef`, `csharpier`, `go`, `awscli2`, `aws-sso-cli`, `terraform`, `nodejs`, `python3`, `kubectl`, `k3d`, `wlr-randr`, `nwg-displays`, `usbutils`, `btop`), `virtualisation.docker.enable` |
 | `home-manager.nix` | `home-manager.useGlobalPkgs`, `home-manager.useUserPackages`, `home-manager.users.dmiller` (wiring only — see `modules/home/README.md` for the per-user tier) |
 
 Hardware-specific settings never live here — they stay in each host's own
