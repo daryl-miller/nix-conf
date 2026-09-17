@@ -14,6 +14,7 @@
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/dev-tools.nix
     ../../modules/nixos/remote-dev.nix
+    ../../modules/nixos/home-manager.nix
   ];
 
   # See: https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
