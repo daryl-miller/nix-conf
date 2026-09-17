@@ -10,5 +10,10 @@
     ./editor.nix
     ./tmux.nix
     ./github.nix
+    ./theme.nix
+    ./hyprland.nix
+    ./waybar.nix
+    ./hypr-shell.nix
+    ./hypr-extras.nix
   ];
 }

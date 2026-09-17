@@ -8,6 +8,7 @@
     ../../modules/nixos/boot.nix
     ../../modules/nixos/networking.nix
     ../../modules/nixos/desktop.nix
+    ../../modules/nixos/hyprland.nix
     ../../modules/nixos/users.nix
     ../../modules/nixos/audio.nix
     ../../modules/nixos/printing.nix

@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     git
     claude-code
+    vscode
     dotnet-sdk
     dotnet-aspnetcore
     dotnet-ef
