@@ -14,6 +14,8 @@
     ../../modules/nixos/printing.nix
     ../../modules/nixos/nix-settings.nix
     ../../modules/nixos/dev-tools.nix
+    ../../modules/nixos/desktop-apps.nix
+    ../../modules/nixos/browser-extensions.nix
     ../../modules/nixos/remote-dev.nix
     ../../modules/nixos/home-manager.nix
   ];
