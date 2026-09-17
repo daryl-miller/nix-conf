@@ -20,6 +20,7 @@
     wlr-randr
     nwg-displays
     usbutils
+    btop
   ];
 
   virtualisation.docker.enable = true;
