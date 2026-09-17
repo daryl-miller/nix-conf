@@ -35,6 +35,13 @@
         # Acer XB271HU is enumerated as DP-4 (not HDMI-A-1 despite the HDMI cable — this
         # iGPU/dock reports it as a DisplayPort connector), portrait rotated 90° clockwise
         "DP-4,preferred,auto,1,transform,1"
+        # Samsung Odyssey G85SB. HDR is still marked experimental upstream (Hyprland wiki:
+        # Configuring/Core/Monitors/Colors) — some users report color/grey-level distortion
+        # with cm=hdr. bitdepth=10 is required alongside cm=hdr for HDR to take effect.
+        # sdrbrightness=3: SDR desktop content is remapped much dimmer under cm=hdr
+        # (this monitor reports sdrMaxLuminance: 80 nits) — 1.2 wasn't nearly enough to
+        # compensate; 3 was confirmed to look right by eye.
+        "DP-2,preferred,auto,1,bitdepth,10,cm,hdr,sdrbrightness,3"
         ",preferred,auto,auto"
       ];
 
@@ -79,6 +86,24 @@
         # migrated.
         preserve_split = true;
       };
+
+      # Logitech G703 gaming mouse: max out the software sensitivity curve (on top of
+      # the mouse's own onboard DPI, set separately via ratbagctl — see
+      # modules/nixos/desktop-apps.nix) and disable pointer acceleration for consistent
+      # 1:1 tracking. Scoped per-device (two hidraw paths for this mouse) so the
+      # touchpad/keyboard pointer stick are unaffected.
+      device = [
+        {
+          name = "logitech-g703-wired/wireless-gaming-mouse-1";
+          sensitivity = 1.0;
+          accel_profile = "flat";
+        }
+        {
+          name = "logitech-g703-wired/wireless-gaming-mouse-2";
+          sensitivity = 1.0;
+          accel_profile = "flat";
+        }
+      ];
 
       plugin."borders-plus-plus" = {
         add_borders = 1;
