@@ -4,7 +4,8 @@
   users.users."dmiller" = {
     isNormalUser = true;
     description = "dmiller";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -14,5 +15,6 @@
     ];
   };
 
+  programs.zsh.enable = true;
   programs.firefox.enable = true;
 }
